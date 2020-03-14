@@ -10,7 +10,7 @@ module Tracing
         # @return [Boolean]
         def matches?(span)
           @subject = span
-          @actual = span.logs.map { |log| log.fields.dup.tap { |h| h[:event] = log.event } }
+          @actual = span.logs.map { |log| log.fields.dup }
 
           if any?
             @actual.any?

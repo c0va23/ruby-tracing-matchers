@@ -54,12 +54,13 @@ RSpec.describe Tracing::Matchers::Span::HaveLog do
 
     it "generates description" do
       expect(span).to have_log
-      expect(RSpec::Matchers.generated_description).to eq "should have log entry"
+      expect(RSpec::Matchers.generated_description).to eq 'is expected to have log entry'
     end
 
     it "generates description with expected tag values" do
       expect(span).to have_log(event: "error")
-      expect(RSpec::Matchers.generated_description).to eq 'should have log entry {:event=>"error"}'
+      expect(RSpec::Matchers.generated_description).to eq \
+        'is expected to have log entry {:event=>"error"}'
     end
   end
 end
